@@ -7,10 +7,10 @@ I = imread('001_backup.jpg');
 
 %% Optimal Threshold for the image
 adapt = OptimalThresholdedImage(I);
-ilngtmilT = OptimalThresholdedImage(ilngtmil);
+%ilngtmilT = OptimalThresholdedImage(ilngtmil);
 %adapt_small = imresize(adapt, 0.5);
 %%
-figure;imshow(ilngtmilT);
+figure;imshow(adapt);
 %% Hough Visualization
 HoughTransformVisualization(I);
 %% Fix Rotation

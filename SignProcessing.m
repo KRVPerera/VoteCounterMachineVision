@@ -2,7 +2,7 @@ close all;
 clear all;
 clc;
 %% Read Images
-object0 = imread('test3.jpg');
+object0 = imread('IlangeiTamilArasu.png');
 object = OptimalThresholdedImage(object0);
 % Show the sign
 figure,imshow(object);

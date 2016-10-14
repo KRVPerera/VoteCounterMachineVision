@@ -1,4 +1,7 @@
-function [binaryimage] =  OptimalThresholdedImage(RGBimage)
+function [binaryimage] =  OptimalThresholdedImage(RGBimage0)
+    RGBimage = RGBimage0;
+    % streching will fail the thresholding
+    %imadjust(RGBimage0, stretchlim(RGBimage0));
     filterdI = medfilt2(RGBimage(:,:,1));
     level = graythresh(filterdI);
     % Don't use median localization for large images

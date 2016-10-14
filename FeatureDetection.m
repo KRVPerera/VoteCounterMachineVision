@@ -3,11 +3,19 @@ clear all;
 clc;
 %% Read Images
 scene = imread('001_backup.jpg');
+sceneadj = imadjust(scene, stretchlim(scene));
+figure;imshow(sceneadj);
 %figure;imshow(scene);title('Scene');
+%%
 object0 = imread('IlangeiTamilArasu.png');
-object = OptimalThresholdedImage(object0);
-%figure;imshow(object);title('Object');
-
+object1 = OptimalThresholdedImage(object0);
+Icomp = imcomplement(object1);
+Ifilled = imfill(Icomp, 'holes');
+figure, imshow(Ifilled);
+se = strel('sphere', 2);
+Iopenned0 = imopen(Ifilled, se);
+Iopenned = bwareaopen(Iopenned0, 50);
+object = Iopenned;
 %%  Detect Features
 I = rgb2gray(scene);
 O = object;
