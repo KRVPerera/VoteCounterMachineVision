@@ -26,6 +26,7 @@ imshow(Iopenned0);
 %%
 Iopenned = bwareaopen(Iopenned0, 310);
 figure,imshow(Iopenned);
+
 %% Extract features
 Iregion = regionprops(Iopenned, 'centroid');
 [labeled, numObjects] = bwlabel(Iopenned,4);
@@ -37,11 +38,9 @@ eccentricities = [stats.Eccentricity];
 idxOfSkittles = find(eccentricities);
 statsDefects = stats(idxOfSkittles);
 
-figure,imshow(object0);hold on;
 for idx = 1 : length(idxOfSkittles)
    h = rectangle('Position', statsDefects(idx).BoundingBox);
    set(h, 'EdgeColor', [.75 0 0]);
    hold on;
 end
 hold off;
-

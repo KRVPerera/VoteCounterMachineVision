@@ -1,6 +1,7 @@
 function [binaryimage] =  OptimalThresholdedImage(RGBimage0)
     RGBimage = RGBimage0;
     %Igray = rgb2gray(I);
+
     % streching will fail the thresholding
     %imadjust(RGBimage0, stretchlim(RGBimage0));
     filterdI = medfilt2(RGBimage(:,:,1));
