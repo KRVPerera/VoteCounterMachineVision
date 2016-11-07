@@ -34,8 +34,8 @@ stats = regionprops(labeled, 'Eccentricity', 'Area', 'BoundingBox');
 areas = [stats.Area];
 eccentricities = [stats.Eccentricity];
 %%
-dd = ~Iopenned;
-mmnt = moment(Iopenned,3,3);
+dd = 
+mmnt = moment(Iopenned,1,1);
 mmnt
 %% Use feature analysis to count skittles objects
 idxOfSkittles = find(eccentricities);
