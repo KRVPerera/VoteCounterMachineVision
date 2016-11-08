@@ -3,8 +3,10 @@ clear all;
 clc;
 % 1 - Bulath Kole, 2 - Bell, 3 - Bicycle, 4 - Elephant, 5 - Hakgediya, 
 % 6 - Swan, 7 - House, 8 - Round Flagged Sign
+%%
+imageName = 'all.png';
 %% Read Images
-object0 = imread('Signs/6.png');
+object0 = imread(strcat('Signs/',imageName));
 Igray = rgb2gray(object0);
 %imtool(Igray);
 %se = strel('sphere', 1);
