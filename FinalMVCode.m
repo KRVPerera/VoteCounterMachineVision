@@ -28,8 +28,7 @@ I = imread('001.jpg');
 %figure;imshowpair(partyVoteRgn, prefVoteRgn, 'montage');title('Regions');
 
 %% Get preference votes
-prefVotes = ExtractPrefVotes(prefVoteRgn,'Debug', DEBUG_LEVEL, 'UseEdge', 1);
-%%
-%aa = ocr(prefVoteRgn);
+% prefVotes = ExtractPrefVotes(prefVoteRgn,'Debug', DEBUG_LEVEL, 'UseEdge', 1);
+
 %% Get the party
-%partyVote = ExtractPartyVote(partyVoteRgn);
+partyVote = ExtractPartyVote(partyVoteRgn,'Debug', DEBUG_LEVEL, 'UseEdge', 0);
