@@ -1,4 +1,4 @@
-function [region1, region2] = BasicSegmentation(RGBimage, debug)
+function [UpperRegion, LowerRegion] = BasicSegmentation(RGBimage, debug)
     if ~exist('debug','var')
         debug = 0;
     end
@@ -8,17 +8,19 @@ function [region1, region2] = BasicSegmentation(RGBimage, debug)
     Iarea = bwareaopen(Ifill,100);
     Ifinal = logical(Iarea);
     %% Getting overall properties to segment main regions
-    stat = regionprops(Ifinal,'Area','MajorAxisLength','BoundingBox','Perimeter','Solidity');
+    stat = regionprops(Ifinal,'Area','BoundingBox','Solidity');
     regions = zeros(2,4);
+    regs = zeros(2);
     index = 1;
     if debug
-        imshow(RGBimage); hold on;
+        figure;imshow(RGBimage); hold on;
     end
     for cnt = 1 : numel(stat)
         bb = stat(cnt).BoundingBox;
         if stat(cnt).Area > mean(cat(stat.Area)) &&  stat(cnt).Solidity > mean(cat(1,stat.Solidity))
             %PossibleBox(stat(cnt))
             regions(index,:)= bb;
+            regs(index) = cnt;
             index = index + 1;
              if debug
                rectangle('position',bb,'edgecolor','r','linewidth',2);
@@ -26,9 +28,14 @@ function [region1, region2] = BasicSegmentation(RGBimage, debug)
         end
     end
     %% Cropping Regions
-    region1 = imcrop(RGBimage, regions(1,:));
-    region2 = imcrop(RGBimage, regions(2,:));
+    if stat(regs(1)).Area > stat(regs(2)).Area
+        UpperRegion = imcrop(RGBimage, regions(1,:));
+        LowerRegion = imcrop(RGBimage, regions(2,:));
+    else
+        UpperRegion = imcrop(RGBimage, regions(2,:));
+        LowerRegion = imcrop(RGBimage, regions(1,:));
+    end
     if debug
-       figure;imshowpair(region1, region2, 'montage'); 
+       figure('Name','Original and Rotation Fixed Image','NumberTitle','off');imshowpair(UpperRegion, LowerRegion, 'montage'); 
     end
 end
