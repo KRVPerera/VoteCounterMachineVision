@@ -26,7 +26,7 @@ BW3 = imextendedmax(I,80);
 imshowpair(BW3, I, 'montage');
 %imsave
 %% Image H max
-I1 = imhmax(I,100);
+I1 = imhmax(I,-191);
 I2 = OptimalThresholdedImage(I1);
 figure();imshowpair(I2, I, 'montage');
 %imsave
@@ -35,5 +35,4 @@ se = strel('s',12);
 tophatFiltered = imtophat(I(:,:,2),se);
 contrastAdjusted = imadjust(gather(tophatFiltered));
 figure, imshow(contrastAdjusted);
-imsave
 

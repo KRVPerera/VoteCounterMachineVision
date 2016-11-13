@@ -1,7 +1,7 @@
 %% Clear
 close all;
 clc;
-imageName = '001m.jpg';
+imageName = '001.jpg';
 %%
 I = imread(imageName);
 %I2 = imresize(I, 0.5);
