@@ -22,10 +22,24 @@ This is a course project done for Machine Vision and Image processing in Univers
 
 ### Thresholding and noise reduction
 
-## Adaptive Thresholding
+#### Adaptive Thresholding
 
 <img src="images/AdaptiveThresholdingOnOriginal.jpg" alt="Preference countin" width="400"/>
 
-## Adaptive Thresholding After Noise Reduction
+#### Adaptive Thresholding After Noise Reduction
 
 <img src="images/AdaptiveThresholdingAfterNoiseReduction.jpg" alt="Preference countin" width="400"/>
+
+### Feature Detection
+
+<img src="images/FeatureDetection.jpg" alt="Preference countin" width="400"/>
+
+
+### Segmentation
+
+<img src="images/Segmentation1.jpg" alt="Preference countin" width="80"/>
+<img src="images/Segmentation2.jpg" alt="Preference countin" width="80"/>
+
+### Histogram
+
+<img src="images/Histograms.jpg" alt="Preference countin" width="800"/>
